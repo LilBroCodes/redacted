@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "id": "redacted",
+  "version": "${version}",
+  "name": "REDACTED",
+  "description": "",
+  "authors": [],
+  "contact": {},
+  "license": "All-Rights-Reserved",
+  "icon": "assets/redacted/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "client": [
+      "org.lilbrocodes.redacted.client.RedactedClient"
+    ],
+    "main": [
+      "org.lilbrocodes.redacted.Redacted"
+    ]
+  },
+  "mixins": [
+    "redacted.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "fabric": "*",
+    "minecraft": "${minecraft_version}"
+  }
+}

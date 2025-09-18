@@ -1,0 +1,68 @@
+plugins {
+    id 'fabric-loom' version '1.10.2'
+    id 'maven-publish'
+}
+
+version = mod_version
+group = maven_group
+
+base {
+    archivesName = archives_base_name
+}
+
+
+repositories {
+    maven {
+        name = "FzzyMaven [Fzzy Config]"
+        url = "https://maven.fzzyhmstrs.me/"
+    }
+    maven {
+        name = "Ladysnake [Satin]"
+        url = "https://maven.ladysnake.org/releases"
+    }
+}
+
+dependencies {
+    minecraft "com.mojang:minecraft:${minecraft_version}"
+    mappings "net.fabricmc:yarn:${yarn_mappings}:v2"
+    modImplementation "net.fabricmc:fabric-loader:${loader_version}"
+
+    modImplementation "net.fabricmc.fabric-api:fabric-api:${fabric_version}"
+    modImplementation "me.fzzyhmstrs:fzzy_config:${project.fzzy_version}+${project.minecraft_version}"
+    modImplementation "org.ladysnake:satin:${project.satin_version}"
+}
+
+processResources {
+    inputs.property "version", version
+    inputs.property "minecraft_version", minecraft_version
+    inputs.property "loader_version", loader_version
+    filteringCharset "UTF-8"
+
+    filesMatching("fabric.mod.json") {
+        expand "version": version,
+                "minecraft_version": minecraft_version,
+                "loader_version": loader_version
+    }
+}
+
+def targetJavaVersion = 17
+tasks.withType(JavaCompile).configureEach {
+    it.options.encoding = "UTF-8"
+    if (targetJavaVersion >= 10 || JavaVersion.current().isJava10Compatible()) {
+        it.options.release.set(targetJavaVersion)
+    }
+}
+
+java {
+    def javaVersion = JavaVersion.toVersion(targetJavaVersion)
+    if (JavaVersion.current() < javaVersion) {
+        toolchain.languageVersion = JavaLanguageVersion.of(targetJavaVersion)
+    }
+    withSourcesJar()
+}
+
+jar {
+    from("LICENSE") {
+        rename { "${it}_${archivesBaseName}" }
+    }
+}

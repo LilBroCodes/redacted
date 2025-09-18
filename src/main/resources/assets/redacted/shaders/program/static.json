@@ -1,0 +1,21 @@
+{
+  "blend": {
+    "func": "add",
+    "srcrgb": "one",
+    "dstrgb": "zero"
+  },
+  "vertex": "blit",
+  "fragment": "redacted:static",
+  "attributes": [ "Position" ],
+  "samplers": [
+    { "name": "DiffuseSampler" }
+  ],
+  "uniforms": [
+    { "name": "ProjMat",             "type": "matrix4x4", "count": 16, "values": [ 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0 ] },
+    { "name": "OutSize",             "type": "float",     "count": 2,  "values": [ 1.0, 1.0 ] },
+    { "name": "uTextureSize",        "type": "float",     "count": 2,  "values": [ 1.0, 1.0 ] },
+    { "name": "uTime",               "type": "float",     "count": 1,  "values": [ 1.0 ] },
+    { "name": "uValue",              "type": "float",     "count": 1,  "values": [ 1.0 ] },
+    { "name": "uCloudy",             "type": "float",     "count": 1,  "values": [ 1.0 ] }
+  ]
+}

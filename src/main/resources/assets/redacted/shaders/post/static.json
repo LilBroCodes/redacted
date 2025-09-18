@@ -1,0 +1,15 @@
+{
+  "targets": [ "swap" ],
+  "passes": [
+    {
+      "name": "blit",
+      "intarget": "minecraft:main",
+      "outtarget": "swap"
+    },
+    {
+      "name": "redacted:static",
+      "intarget": "swap",
+      "outtarget": "minecraft:main"
+    }
+  ]
+}

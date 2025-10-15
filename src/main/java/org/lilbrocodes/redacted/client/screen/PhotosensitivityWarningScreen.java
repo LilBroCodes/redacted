@@ -19,7 +19,6 @@ public class PhotosensitivityWarningScreen extends Screen {
 
         addDrawable(new MultilineTextWidget(centerX - 250, centerY - 40, Text.translatable("redacted.warning"), textRenderer).setCentered(true).setMaxRows(5).setMaxWidth(500));
         addDrawableChild(new ButtonWidget.Builder(Text.translatable("redacted.warning.confirm"), button -> {
-            Configs.CLIENT.photosensitivityMode = true;
             close();
         }).dimensions(centerX - 75, centerY + 20, 150, 20).build());
     }

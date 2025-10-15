@@ -4,8 +4,10 @@
   "package": "org.lilbrocodes.redacted.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
+    "ServerPlayerEntityMixin"
   ],
   "client": [
+    "GameRendererMixin",
     "InGameHudMixin",
     "WorldRendererMixin"
   ],

@@ -1,0 +1,10 @@
+{
+  "static": {
+    "sounds": [
+      {
+        "name": "redacted:static",
+        "stream": true
+      }
+    ]
+  }
+}
